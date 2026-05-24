@@ -19,6 +19,11 @@ Add the memory file constant near the top of the file:
 MEMORY_FILE = Path("memory.json")
 ```
 
+> [!Hint] A context provider is a small hook that runs before the model gets a
+> turn. It can add useful context to the agent instructions, such as remembered
+> state from a previous run. In this step, the context provider reads
+> **C:\workshop\memory.json** and tells the agent which `player_id` to resume.
+
 Inside `main()`, add a context provider that injects the saved player ID before
 each model run:
 
@@ -33,6 +38,12 @@ class PlayerContextProvider(ContextProvider):
 					f"From memory: player_id: {pid}",
 				)
 ```
+
+> [!Hint] Tool calling lets the model ask your Python code to do a specific
+> action. The model decides when the tool is needed, passes arguments to it, and
+> receives the tool result back in the conversation. In this step, the tool gives
+> the agent a controlled way to save the `player_id` after the game registers a
+> player.
 
 Add a tool the model can call after registration:
 

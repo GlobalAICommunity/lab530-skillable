@@ -68,13 +68,10 @@ Run the agent from the VS Code terminal:
 python agent.py
 ```
 
-Checkpoint: the agent should call the game server tools and receive a quest.
-The first run usually registers a new player and starts a quest.
+> **Checkpoint:** the agent should call the game server tools and receive a quest.
+> The first run usually registers a new player and starts a quest.
 
-## What You Learned
 
-You connected the agent to an MCP server, exposed the game actions as tools, and
-started using the agent to interact with the game.
 
 ## Full agent.py Sample
 
@@ -131,3 +128,8 @@ async def main() -> None:
 if __name__ == "__main__":
     asyncio.run(main())
 ```
+
+## What You Learned
+
+You connected the agent to an MCP server, exposed the game actions as tools, and
+started using the agent to interact with the game.
