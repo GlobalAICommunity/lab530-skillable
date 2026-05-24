@@ -5,7 +5,8 @@ agent so you can prove the model connection works. This matters because a simple
 hello-world run gives you a clean baseline before MCP, memory, A2A, and retrieval
 add more moving parts.
 
-In the VS Code Explorer, create `agent.py`:
+In the VS Code Explorer, create a file named **agent.py** in **C:\workshop**.
+Paste the full code below into **agent.py** and save the file:
 
 ```python
 """Game play agent using Microsoft Agent Framework with Azure OpenAI."""
@@ -41,7 +42,7 @@ if __name__ == "__main__":
 	asyncio.run(main())
 ```
 
-Run it from the VS Code terminal:
+Run **agent.py** from the VS Code terminal:
 
 ```powershell
 python agent.py

@@ -4,8 +4,14 @@ In this exercise, you add session logging so you can inspect what the agent sent
 what the model returned, and which tools were called. This matters because agent
 behavior is much easier to debug when each model call and tool result is visible.
 
-Create `log.py` in the VS Code Explorer. This helper records user turns, model
-input, tool calls, and tool results.
+First, create the logging helper file. In the VS Code Explorer, click the new
+file button, name the file **log.py**, and make sure it appears next to
+**agent.py** in **C:\workshop**. Paste the full helper code below into
+**log.py** and save the file.
+
+This helper records user turns, model input, tool calls, and tool results. You
+will not run **log.py** directly. The main **agent.py** file will import and use
+these helper functions.
 
 ```python
 """Per-session conversation and tool logging for the workshop agent."""
@@ -97,13 +103,16 @@ def build_logging_middleware(log_path: Path):
 	return log_agent, log_chat, log_function
 ```
 
-Import the helpers:
+Now go back to **agent.py**. At the top of **agent.py**, with the other imports,
+import the two helper functions from **log.py**:
 
 ```python
 from log import build_logging_middleware, open_session_log
 ```
 
-Create the log middleware before constructing the agent:
+Next, stay in **agent.py** and find the `main()` function. Inside `main()`, add
+the logging setup after the MCP tool is connected and before the `Agent(...)` is
+created:
 
 ```python
 log_path = open_session_log()
@@ -111,7 +120,12 @@ print(f"Session log: {log_path}")
 agent_mw, chat_mw, function_mw = build_logging_middleware(log_path)
 ```
 
-Pass it to the agent:
+This creates a new file in the **logs** folder for the current run and builds the
+three middleware functions that will write to it.
+
+Finally, still in **agent.py**, update the existing `Agent(...)` call. Keep the
+tools and context provider you already added, and add the `middleware` line shown
+below:
 
 ```python
 agent = Agent(
@@ -124,8 +138,10 @@ agent = Agent(
 )
 ```
 
-Checkpoint: every run creates a file under `logs`. Open the latest log from the
-VS Code Explorer when the agent makes a surprising tool choice.
+Checkpoint: run **agent.py** again. The terminal should print a line that starts
+with `Session log:`. In the VS Code Explorer, open the **logs** folder and select
+the newest log file. Use that file when the agent makes a surprising tool choice,
+because it shows the model input, tool calls, tool results, and final response.
 
 ## What You Learned
 

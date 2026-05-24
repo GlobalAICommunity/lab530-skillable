@@ -4,7 +4,8 @@ In this exercise, you add lightweight memory so the agent can save the
 `player_id` returned by the game. This matters because future runs should resume
 the same player session instead of registering a new player every time.
 
-Add imports:
+Go back to **agent.py**. At the top of **agent.py**, add these imports with the
+other imports:
 
 ```python
 import json
@@ -13,7 +14,8 @@ from pathlib import Path
 from agent_framework import ContextProvider, tool
 ```
 
-Add the memory file constant near the top of the file:
+In **agent.py**, add the memory file constant near the top of the file, after the
+imports and before `load_dotenv(override=True)`:
 
 ```python
 MEMORY_FILE = Path("memory.json")
@@ -24,8 +26,8 @@ MEMORY_FILE = Path("memory.json")
 > state from a previous run. In this step, the context provider reads
 > **C:\workshop\memory.json** and tells the agent which `player_id` to resume.
 
-Inside `main()`, add a context provider that injects the saved player ID before
-each model run:
+In **agent.py**, add this context provider class after the memory file constant
+and before `main()`. It injects the saved player ID before each model run:
 
 ```python
 class PlayerContextProvider(ContextProvider):
@@ -45,7 +47,8 @@ class PlayerContextProvider(ContextProvider):
 > the agent a controlled way to save the `player_id` after the game registers a
 > player.
 
-Add a tool the model can call after registration:
+In **agent.py**, add this tool function below the context provider class. The
+model can call it after registration to save the player ID:
 
 ```python
 @tool(description="Save the player_id returned after registration")
@@ -54,7 +57,8 @@ async def save_player_id(player_id: str) -> str:
 	return f"Player ID {player_id} saved."
 ```
 
-Register the memory provider and memory tool:
+Inside `main()`, update the existing `Agent(...)` call. Keep the game MCP tool
+and add both the memory tool and context provider:
 
 ```python
 agent = Agent(

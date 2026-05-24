@@ -4,25 +4,29 @@ In this exercise, you add the city guide specialist as a tool on the main game
 agent. This matters because the final agent needs both movement advice from
 Agent42 and local knowledge from the city guide to complete the full quest.
 
-In `agent.py`, import the city guide builder:
+Go back to **agent.py**. At the top of **agent.py**, with the other imports,
+import the city guide builder from **agent_city_guide.py**:
 
 ```python
 from agent_city_guide import build_city_guide_tool
 ```
 
-Create the city guide tool after the Agent42 tool:
+Inside `main()`, create the city guide tool after the Agent42 tool and before the
+`Agent(...)` call:
 
 ```python
 guide_tool, city_guide_search = build_city_guide_tool()
 ```
 
-Add it to the tools list:
+Still in **agent.py**, update the existing `Agent(...)` call. Keep the tools you
+already have and add `guide_tool` to the tools list:
 
 ```python
 tools=[game_mcp, save_player_id, agent42_tool, guide_tool]
 ```
 
-Keep the main agent context providers focused on memory only:
+In the same `Agent(...)` call, keep the main agent context providers focused on
+memory only:
 
 ```python
 context_providers=[
@@ -30,14 +34,15 @@ context_providers=[
 ]
 ```
 
-Close both long-lived resources at the end of `main()`:
+At the end of `main()`, close both long-lived resources. Keep the existing
+`game_mcp.close()` call and add `city_guide_search.close()` next to it:
 
 ```python
 await game_mcp.close()
 await city_guide_search.close()
 ```
 
-Update the instructions one last time:
+In the same `Agent(...)` call, update the instructions one last time:
 
 ```python
 instructions=(
@@ -48,7 +53,7 @@ instructions=(
 )
 ```
 
-The Azure AI Search context provider lives inside `agent_city_guide.py`, not in
+The Azure AI Search context provider lives inside **agent_city_guide.py**, not in
 the main game agent. That means search is only loaded when the main agent calls
 `ask_city_guide`, instead of spending RAG tokens on every game turn.
 

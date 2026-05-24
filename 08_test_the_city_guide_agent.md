@@ -12,8 +12,8 @@ In Microsoft Foundry:
 3. Confirm it is backed by Azure AI Search.
 4. Copy the Azure AI Search endpoint and query/admin key.
 
-Open the existing `.env` file and add the city guide model deployment plus the
-Azure AI Search values:
+Open the existing **.env** file in **C:\workshop** and add the city guide model
+deployment plus the Azure AI Search values:
 
 ```env
 CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME=<your-city-guide-deployment>
@@ -28,9 +28,10 @@ game agent. If you want to keep the setup simple, set
 `CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME` to the same deployment name as
 `AZURE_OPENAI_DEPLOYMENT_NAME`.
 
-Create `agent_city_guide.py`. This is a second specialist agent. Its search
-context provider lives here, so the main game agent does not spend RAG tokens on
-every turn.
+In the VS Code Explorer, create a file named **agent_city_guide.py** in
+**C:\workshop**. Paste the full code below into **agent_city_guide.py** and save
+the file. This is a second specialist agent. Its search context provider lives
+here, so the main game agent does not spend RAG tokens on every turn.
 
 ```python
 """City guide specialist agent for San Francisco knowledge-base questions."""
@@ -104,7 +105,7 @@ if __name__ == "__main__":
 	asyncio.run(main())
 ```
 
-Run it from the VS Code terminal:
+Run **agent_city_guide.py** from the VS Code terminal:
 
 ```powershell
 python agent_city_guide.py

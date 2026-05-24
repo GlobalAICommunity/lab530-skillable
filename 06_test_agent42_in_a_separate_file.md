@@ -5,15 +5,17 @@ main game agent. This matters because Agent42 is the transport expert, and a
 standalone smoke test helps confirm A2A communication works before the full game
 flow depends on it.
 
-Open the existing `.env` file and add the deployed Agent42 A2A URL:
+Open the existing **.env** file in **C:\workshop** and add the deployed Agent42
+A2A URL:
 
 ```env
 AGENT42_URL=https://<your-agent42-host>/
 ```
 
-Create `agent_agent42.py` in the VS Code Explorer. This file keeps the Agent42
-A2A setup out of the main game agent, and it gives you a small smoke test you
-can run by itself:
+In the VS Code Explorer, create a file named **agent_agent42.py** in
+**C:\workshop**. Paste the full code below into **agent_agent42.py** and save the
+file. This file keeps the Agent42 A2A setup out of the main game agent, and it
+gives you a small smoke test you can run by itself:
 
 ```python
 """Agent42 transport specialist tool for movement missions."""
@@ -65,7 +67,7 @@ if __name__ == "__main__":
 	asyncio.run(main())
 ```
 
-Run it from the VS Code terminal:
+Run **agent_agent42.py** from the VS Code terminal:
 
 ```powershell
 python agent_agent42.py

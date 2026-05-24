@@ -22,7 +22,7 @@ available in the existing **.env** file.
 2. Select your project.
 3. Open **Models + endpoints**.
 4. Select the chat model deployment for the workshop.
-5. Copy the endpoint, API key, and deployment name into the existing `.env` file.
+5. Copy the endpoint, API key, and deployment name into the existing **.env** file.
 
 > Screenshot placeholder: Microsoft Foundry project page with **Models +
 > endpoints** highlighted.
@@ -32,7 +32,7 @@ available in the existing **.env** file.
 > Screenshot placeholder: endpoint and key location for the Azure OpenAI
 > resource.
 
-Add these values to `.env`:
+Open the existing **.env** file in **C:\workshop** and add or update these values:
 
 ```env
 AZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com

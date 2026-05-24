@@ -16,13 +16,15 @@ GAME_MCP_URL=https://mcp.workshop.agentcon.dev/san-francisco/mcp
 
 You do not need to change this value during the workshop.
 
-Add the MCP imports:
+Go back to **agent.py**. At the top of **agent.py**, update the existing
+Microsoft Agent Framework import so it also imports `MCPStreamableHTTPTool`:
 
 ```python
 from agent_framework import Agent, MCPStreamableHTTPTool
 ```
 
-Create and connect the tool before constructing the agent:
+Inside `main()`, create and connect the MCP tool after the Azure OpenAI client is
+created and before the `Agent(...)` call:
 
 ```python
 game_mcp = MCPStreamableHTTPTool(
@@ -32,7 +34,9 @@ game_mcp = MCPStreamableHTTPTool(
 await game_mcp.connect()
 ```
 
-Pass it to the agent:
+Still in **agent.py**, update the existing `Agent(...)` call. Keep the client and
+name you already have, replace the instructions with the version below, and add
+the `tools=[game_mcp]` line:
 
 ```python
 agent = Agent(

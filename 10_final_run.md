@@ -20,3 +20,9 @@ Expected flow:
 5. It calls `ask_city_guide` for the guide question.
 6. It asks Agent42 again for the final movement mission.
 7. It reaches Fort Mason and appears on the leaderboard.
+
+## What You Learned
+
+You ran the completed agent through the full quest and confirmed that the model
+connection, MCP tools, memory, logging, Agent42, and city guide retrieval work
+together in one end-to-end flow.
