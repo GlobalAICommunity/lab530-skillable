@@ -1,6 +1,6 @@
 !INSTRUCTIONS[Lost in the City Agent Workshop](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/00_step_into_your_workspace.md)
 ===
-!INSTRUCTIONS[Step 1: Get Your Azure OpenAI Details From Foundry](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/01_get_azure_openai_details_from_foundry.md)
+!INSTRUCTIONS[Step 1: Get Your Azure OpenAI Details From Microsoft Foundry](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/01_get_azure_openai_details_from_foundry.md)
 ===
 !INSTRUCTIONS[Step 2: Create A Hello-World Agent](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/02_create_hello_world_agent.md)
 ===

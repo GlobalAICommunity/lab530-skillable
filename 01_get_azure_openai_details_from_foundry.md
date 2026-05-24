@@ -1,7 +1,7 @@
-# Step 1: Get Your Azure OpenAI Details From Foundry
+# Step 1: Get Your Azure OpenAI Details From Microsoft Foundry
 
 Start by collecting the Azure OpenAI values the agent needs to call the model.
-Open Azure AI Foundry, select your project, and find the deployed chat model you
+Open Microsoft Foundry, select your project, and find the deployed chat model you
 will use for the main agent.
 
 
@@ -17,13 +17,13 @@ will use for the main agent.
 
 
 
-1. Open the Azure AI Foundry portal.
+1. Open the Microsoft Foundry portal.
 2. Select your project.
 3. Open **Models + endpoints**.
 4. Select the chat model deployment for the workshop.
 5. Copy the endpoint, API key, and deployment name into the existing `.env` file.
 
-> Screenshot placeholder: Azure AI Foundry project page with **Models +
+> Screenshot placeholder: Microsoft Foundry project page with **Models +
 > endpoints** highlighted.
 
 > Screenshot placeholder: model deployment details showing the deployment name.
@@ -41,5 +41,5 @@ AZURE_OPENAI_DEPLOYMENT_NAME=<your-main-agent-deployment>
 
 ## What You Learned
 
-You found the Azure OpenAI endpoint, API key, and deployment name in Azure AI
+You found the Azure OpenAI endpoint, API key, and deployment name in Microsoft
 Foundry and added them to the agent configuration.

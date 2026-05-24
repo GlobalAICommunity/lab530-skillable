@@ -4,7 +4,7 @@ The second mission is a city-guide question. The workshop knowledge base has
 already been created from the city-guide content so the agent can retrieve the
 answer without hard-coding it.
 
-In Azure AI Foundry:
+In Microsoft Foundry:
 
 1. Create or open the workshop project.
 2. Open the knowledge base named `knowledgebase-city-guide`.

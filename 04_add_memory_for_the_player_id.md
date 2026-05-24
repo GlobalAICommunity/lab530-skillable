@@ -57,7 +57,7 @@ agent = Agent(
 )
 ```
 
-Checkpoint: after registration, **my-agent/memory.json** should contain the saved
+Checkpoint: after registration, **C:\workshop\memory.json** should contain the saved
 `player_id`. On the next run, the agent should resume instead of registering a
 new player.
 
