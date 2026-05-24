@@ -50,14 +50,14 @@ unlock it, and use the credentials below:
 
 ## Step Into Your Workspace
 
-When VS Code starts, the `my-agent` folder should already be open. If that is
+When VS Code starts, the **my-agent** folder should already be open. If that is
 not the case:
 
 1. Select **File > Open Folder**.
-2. Choose the `my-agent` directory.
+2. Choose the **my-agent** directory.
 
 Open the integrated terminal with **Terminal > New Terminal** and confirm the
-terminal is PowerShell and the prompt is inside `my-agent`.
+terminal is PowerShell and the prompt is inside **my-agent**.
 
 The workshop environment already has the required Python packages installed. A
 `requirements.txt` may be present for reference, but you do not need to create a
@@ -69,7 +69,7 @@ If you want to verify the packages from the VS Code terminal, run:
 python -c "import agent_framework, dotenv; print('workshop packages ready')"
 ```
 
-The `my-agent` folder already has a `.env` file. You do not need to create a new
+The **my-agent** folder already has a **.env** file. You do not need to create a new
 one. As you go through the workshop, open that file and add the values needed
 for the current step.
 
