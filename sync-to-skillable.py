@@ -19,7 +19,7 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 SKILLABLE_FILE = "skillable.md"
 INDEX_FILE = "index.html"
-BASE_URL = "https://blue-wave-029a5b81e.7.azurestaticapps.net/"
+BASE_URL = "https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/"
 
 
 def extract_title(md_path: Path) -> str:
