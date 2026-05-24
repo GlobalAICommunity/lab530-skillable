@@ -20,4 +20,4 @@
 ===
 !INSTRUCTIONS[Final Run](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/10_final_run.md)
 ===
-!INSTRUCTIONS[Troubleshooting](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/11_troubleshooting.md)
+!INSTRUCTIONS[Lab Recap](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/11_lab_recap.md)

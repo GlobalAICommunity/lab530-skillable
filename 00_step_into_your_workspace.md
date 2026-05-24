@@ -45,7 +45,7 @@ of your screen - browser, code editor, terminal, the lot. Sign in once
 and you're set for the rest of the workshop. Click inside the VM,
 unlock it, and use the credentials below:
 
-**Password**: @lab.VirtualMachine(Win11-Pro-Base).Password
+**Password**: +++@lab.VirtualMachine(Win11-Pro-Base).Password+++
 
 
 ## Step Into Your Workspace
@@ -59,9 +59,7 @@ not the case:
 Open the integrated terminal with **Terminal > New Terminal** and confirm the
 terminal is PowerShell and the prompt is inside **my-agent**.
 
-The workshop environment already has the required Python packages installed. A
-`requirements.txt` may be present for reference, but you do not need to create a
-virtual environment or run `pip install`.
+The workshop environment already has the required Python packages installed. 
 
 If you want to verify the packages from the VS Code terminal, run:
 
@@ -78,5 +76,5 @@ the workshop.
 
 ## What You Learned
 
-You confirmed the workshop workspace, terminal, installed packages, and `.env`
+You confirmed the workshop workspace, terminal, installed packages, and **.env**
 file are ready before building the agent.
