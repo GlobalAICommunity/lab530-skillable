@@ -1,0 +1,51 @@
+# Step 2: Create A Hello-World Agent
+
+Start with a minimal agent that can make one model call. In the VS Code
+Explorer, create `agent.py`:
+
+```python
+"""Game play agent using Microsoft Agent Framework with Azure OpenAI."""
+
+import asyncio
+import os
+
+from agent_framework import Agent
+from agent_framework.openai import OpenAIChatClient
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
+
+
+async def main() -> None:
+	client = OpenAIChatClient(
+		azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
+		api_key=os.environ["AZURE_OPENAI_API_KEY"],
+		model=os.environ["AZURE_OPENAI_DEPLOYMENT_NAME"],
+	)
+
+	agent = Agent(
+		client=client,
+		name="Game Play Agent",
+		instructions="You are a friendly workshop agent. Reply briefly.",
+	)
+
+	response = await agent.run("Say hello to the workshop.")
+	print(response.text)
+
+
+if __name__ == "__main__":
+	asyncio.run(main())
+```
+
+Run it from the VS Code terminal:
+
+```powershell
+python agent.py
+```
+
+Checkpoint: the terminal prints a short hello from the model.
+
+## What You Learned
+
+You created a minimal Microsoft Agent Framework agent, connected it to Azure
+OpenAI, and made your first model call from `agent.py`.

@@ -1,0 +1,9 @@
+{
+  "mimeTypes": {
+    ".md": "text/plain; charset=utf-8"
+  },
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/*.{md,png,jpg,jpeg,gif,svg,css,js,json}"]
+  }
+}
