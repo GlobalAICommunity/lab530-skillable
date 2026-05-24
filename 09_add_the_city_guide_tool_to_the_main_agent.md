@@ -1,5 +1,9 @@
 # Step 9: Add The City Guide Tool To The Main Agent
 
+In this exercise, you add the city guide specialist as a tool on the main game
+agent. This matters because the final agent needs both movement advice from
+Agent42 and local knowledge from the city guide to complete the full quest.
+
 In `agent.py`, import the city guide builder:
 
 ```python

@@ -1,7 +1,9 @@
 # Step 7: Add Agent42 To The Main Agent
 
-In the game, movement missions require choosing a transport answer. The agent
-should ask Agent42 before submitting movement answers.
+In this exercise, you add Agent42 to the main game agent so movement missions can
+use transport advice before submitting an answer. This matters because the game
+expects choices like `car`, `walking`, or `bike`, and the main agent should ask a
+specialist instead of guessing.
 
 In `agent.py`, import the builder from the file you just created:
 

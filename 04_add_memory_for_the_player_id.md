@@ -1,7 +1,8 @@
 # Step 4: Add Memory For The Player ID
 
-The game returns a `player_id`. The agent needs to save it so future runs can
-resume the same game.
+In this exercise, you add lightweight memory so the agent can save the
+`player_id` returned by the game. This matters because future runs should resume
+the same player session instead of registering a new player every time.
 
 Add imports:
 

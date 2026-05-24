@@ -1,7 +1,9 @@
 # Step 6: Test Agent42 In A Separate File
 
-Agent42 is the transport expert. It recommends `car`, `walking`, or `bike`,
-then returns a map URL, directions URL, and recommendation code.
+In this exercise, you test Agent42 in a separate file before wiring it into the
+main game agent. This matters because Agent42 is the transport expert, and a
+standalone smoke test helps confirm A2A communication works before the full game
+flow depends on it.
 
 Open the existing `.env` file and add the deployed Agent42 A2A URL:
 

@@ -1,8 +1,9 @@
 # Step 8: Test The City Guide Agent
 
-The second mission is a city-guide question. The workshop knowledge base has
-already been created from the city-guide content so the agent can retrieve the
-answer without hard-coding it.
+In this exercise, you test a city guide specialist that answers questions from
+the workshop knowledge base. This matters because guide missions should be solved
+with retrieval from the San Francisco content instead of hard-coded answers or
+model guesses.
 
 In Microsoft Foundry:
 

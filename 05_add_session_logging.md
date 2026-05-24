@@ -1,7 +1,11 @@
 # Step 5: Add Session Logging
 
-Create `log.py` in the VS Code Explorer. This helper makes the workshop
-debuggable by recording user turns, model input, tool calls, and tool results.
+In this exercise, you add session logging so you can inspect what the agent sent,
+what the model returned, and which tools were called. This matters because agent
+behavior is much easier to debug when each model call and tool result is visible.
+
+Create `log.py` in the VS Code Explorer. This helper records user turns, model
+input, tool calls, and tool results.
 
 ```python
 """Per-session conversation and tool logging for the workshop agent."""

@@ -1,7 +1,11 @@
 # Step 2: Create A Hello-World Agent
 
-Start with a minimal agent that can make one model call. In the VS Code
-Explorer, create `agent.py`:
+In this exercise, you create the smallest possible Microsoft Agent Framework
+agent so you can prove the model connection works. This matters because a simple
+hello-world run gives you a clean baseline before MCP, memory, A2A, and retrieval
+add more moving parts.
+
+In the VS Code Explorer, create `agent.py`:
 
 ```python
 """Game play agent using Microsoft Agent Framework with Azure OpenAI."""
@@ -43,9 +47,9 @@ Run it from the VS Code terminal:
 python agent.py
 ```
 
-Checkpoint: the terminal prints a short hello from the model.
+> **Checkpoint:** the terminal prints a short hello from the model.
 
 ## What You Learned
 
 You created a minimal Microsoft Agent Framework agent, connected it to Azure
-OpenAI, and made your first model call from `agent.py`.
+OpenAI, and made your first model call from **agent.py**.

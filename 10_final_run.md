@@ -1,5 +1,10 @@
 # Final Run
 
+In this exercise, you run the complete agent end to end and watch it play through
+the full Lost in the City flow. This matters because it confirms the model
+connection, MCP tools, memory, logging, Agent42, and city guide retrieval all work
+together as one agent.
+
 Run the complete agent from the VS Code terminal:
 
 ```powershell
