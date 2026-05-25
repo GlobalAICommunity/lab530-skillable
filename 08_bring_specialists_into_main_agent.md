@@ -13,38 +13,38 @@ from agent_agent42 import build_agent42_tool
 from agent_city_guide import build_city_guide_tool
 ```
 
-Inside `main()`, create the specialist tools after the game MCP server is
-connected and before the `Agent(...)` call:
+Inside **main()**, create the specialist tools after the game MCP server is
+connected and before the **Agent(...)** call:
 
 ```python
 agent42_tool = build_agent42_tool()
 guide_tool, city_guide_search = build_city_guide_tool()
 ```
 
-Still in **agent.py**, update the existing `Agent(...)` call. Keep `game_mcp`
-and `save_player_id` from the previous steps, then add `agent42_tool` and
-`guide_tool` to the tools list:
+Still in **agent.py**, update the existing **Agent(...)** call. Keep **game_mcp**
+and **save_player_id** from the previous steps, then add **agent42_tool** and
+**guide_tool** to the tools list:
 
 ```python
 tools=[game_mcp, save_player_id, agent42_tool, guide_tool]
 ```
 
-In the same `Agent(...)` call, keep the main agent context providers focused on
+In the same **Agent(...)** call, keep the main agent context providers focused on
 memory only:
 
 ```python
 context_providers=[PlayerContextProvider(source_id="player-memory")]
 ```
 
-At the end of `main()`, close both long-lived resources. Keep the existing
-`game_mcp.close()` call and add `city_guide_search.close()` next to it:
+At the end of **main()**, close both long-lived resources. Keep the existing
+**game_mcp.close()** call and add **city_guide_search.close()** next to it:
 
 ```python
 await game_mcp.close()
 await city_guide_search.close()
 ```
 
-Finally, replace the single `agent.run(...)` call with a chat loop so you can
+Finally, replace the single **agent.run(...)** call with a chat loop so you can
 keep playing after the first game response:
 
 ```python
@@ -176,13 +176,13 @@ python agent.py
 Expected flow:
 
 1. The agent starts or resumes a game session.
-2. It saves or reuses the `player_id`.
-3. It calls `ask_agent42` for movement missions.
-4. It calls `ask_city_guide` for guide questions.
+2. It saves or reuses the **player_id**.
+3. It calls **ask_agent42** for movement missions.
+4. It calls **ask_city_guide** for guide questions.
 5. It reaches the final destination and appears on the leaderboard.
 
 > **Checkpoint:** the terminal shows the final game result, and the session log
-> contains calls to the game MCP tools, `ask_agent42`, and `ask_city_guide`.
+> contains calls to the game MCP tools, **ask_agent42**, and **ask_city_guide**.
 
 ## What You Learned
 

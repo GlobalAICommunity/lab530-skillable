@@ -25,8 +25,8 @@ Microsoft Agent Framework import so it also imports **MCPStreamableHTTPTool**:
 from agent_framework import Agent, MCPStreamableHTTPTool
 ```
 
-Inside `main()`, create and connect the MCP tool after the Azure OpenAI client is
-created and before the `Agent(...)` call:
+Inside **main()**, create and connect the MCP tool after the Azure OpenAI client is
+created and before the **Agent(...)** call:
 
 ```python
 game_mcp = MCPStreamableHTTPTool(

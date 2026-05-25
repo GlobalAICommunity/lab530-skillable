@@ -15,7 +15,7 @@ from agent_framework import ContextProvider, tool
 ```
 
 In **agent.py**, add the memory file constant near the top of the file, after the
-imports and before `load_dotenv(override=True)`:
+imports and before **load_dotenv(override=True)**:
 
 ```python
 MEMORY_FILE = Path("memory.json")
@@ -57,7 +57,7 @@ async def save_player_id(player_id: str) -> str:
 	return f"Player ID {player_id} saved."
 ```
 
-Inside **main()**, update the existing `Agent(...)` call. Keep
+Inside **main()**, update the existing **Agent(...)** call. Keep
 **instructions=game_play_prompt** and the game MCP tool, then add both the memory
 tool and context provider:
 
@@ -71,7 +71,7 @@ agent = Agent(
 )
 ```
 
-Still inside **main()**, update the code after `session = agent.create_session()`
+Still inside **main()**, update the code after **session = agent.create_session()**
 so the agent starts the game, then sends your name in the same session:
 
 ```python
