@@ -164,8 +164,11 @@ if __name__ == "__main__":
 > **Checkpoint:** after the second **agent.run(...)** call, the terminal should
 > show your new **player_id** and a message that says **Say START when you are
 > ready**. The **C:\workshop\memory.json** file should contain the saved
-> **player_id**. On the next run, the agent should resume instead of registering a
-> new player.
+> **player_id**. On the next run, the agent should resume instead of registering
+> a new player.
+
+> [!Hint] Look at the big screen in the room. Your name should now appear in the
+> player list.
 
 ## What You Learned
 
