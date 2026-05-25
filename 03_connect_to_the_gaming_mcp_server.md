@@ -5,8 +5,9 @@ through MCP so it can start sessions and call game actions as tools. This matter
 because MCP turns the game into something the agent can operate instead of just
 talking about.
 
-The game exposes its actions as MCP tools. In the agent code this is the
-`MCPStreamableHTTPTool` named `game_mcp`.
+The game exposes its actions as MCP tools and the game play agent prompt as an
+MCP prompt. In the agent code this connection is the `MCPStreamableHTTPTool`
+named `game_mcp`.
 
 Open the existing **.env** file and confirm the game MCP URL is already there:
 
@@ -34,20 +35,21 @@ game_mcp = MCPStreamableHTTPTool(
 await game_mcp.connect()
 ```
 
+After the MCP tool is connected, get the game play prompt from the MCP server:
+
+```python
+game_play_prompt = await game_mcp.get_prompt("game_play_prompt")
+```
+
 Still in **agent.py**, update the existing `Agent(...)` call. Keep the client and
-name you already have, replace the instructions with the version below, and add
-the `tools=[game_mcp]` line:
+name you already have, use `game_play_prompt` for the instructions, and add the
+`tools=[game_mcp]` line:
 
 ```python
 agent = Agent(
 	client=client,
 	name="Game Play Agent",
-	instructions=(
-		"You are an agent that plays the game by using the available tools. "
-		"Show story text returned by game tools in full. Keep your own extra commentary short and plain. "
-		"Do not use markdown, bullet lists, tables, or code blocks. When a specialist tool returns advice "
-		"or an answer, show it plainly before continuing."
-	),
+	instructions=game_play_prompt,
 	tools=[game_mcp],
 )
 ```
@@ -109,16 +111,12 @@ async def main() -> None:
     await game_mcp.connect()
 
     try:
+        game_play_prompt = await game_mcp.get_prompt("game_play_prompt")
+
         agent = Agent(
             client=client,
             name="Game Play Agent",
-            instructions=(
-                "You are an agent that plays the game by using the available tools. "
-                "Show story text returned by game tools in full. Keep your own extra "
-                "commentary short and plain. Do not use markdown, bullet lists, "
-                "tables, or code blocks. When a specialist tool returns advice or "
-                "an answer, show it plainly before continuing."
-            ),
+            instructions=game_play_prompt,
             tools=[game_mcp],
         )
 
@@ -135,5 +133,6 @@ if __name__ == "__main__":
 
 ## What You Learned
 
-You connected the agent to an MCP server, exposed the game actions as tools, and
-started using the agent to interact with the game.
+You connected the agent to an MCP server, loaded the game play prompt from that
+server, exposed the game actions as tools, and started using the agent to
+interact with the game.

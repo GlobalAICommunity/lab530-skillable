@@ -82,6 +82,7 @@ async def main() -> None:
 	await game_mcp.connect()
 
 	try:
+		game_play_prompt = await game_mcp.get_prompt("game_play_prompt")
 		log_path = open_session_log()
 		print(f"Session log: {log_path}")
 		agent_mw, chat_mw, function_mw = build_logging_middleware(log_path)
@@ -90,10 +91,7 @@ async def main() -> None:
 		agent = Agent(
 			client=client,
 			name="Game Play Agent",
-			instructions=(
-				"You are playing Lost in San Francisco. When a player_id is returned, "
-				"call save_player_id. If memory provides a player_id, resume that player."
-			),
+			instructions=game_play_prompt,
 			tools=[game_mcp, save_player_id, agent42_tool],
 			context_providers=[PlayerContextProvider(source_id="player-memory")],
 			middleware=[agent_mw, chat_mw, function_mw],

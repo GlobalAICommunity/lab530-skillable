@@ -57,17 +57,15 @@ async def save_player_id(player_id: str) -> str:
 	return f"Player ID {player_id} saved."
 ```
 
-Inside `main()`, update the existing `Agent(...)` call. Keep the game MCP tool
-and add both the memory tool and context provider:
+Inside `main()`, update the existing `Agent(...)` call. Keep
+`instructions=game_play_prompt` and the game MCP tool, then add both the memory
+tool and context provider:
 
 ```python
 agent = Agent(
 	client=client,
 	name="Game Play Agent",
-	instructions=(
-		"You are playing Lost in San Francisco. When a player_id is returned, "
-		"call save_player_id. If memory provides a player_id, resume that player."
-	),
+	instructions=game_play_prompt,
 	tools=[game_mcp, save_player_id],
 	context_providers=[PlayerContextProvider(source_id="player-memory")],
 )

@@ -42,15 +42,11 @@ await game_mcp.close()
 await city_guide_search.close()
 ```
 
-In the same `Agent(...)` call, update the instructions one last time:
+In the same `Agent(...)` call, keep `instructions=game_play_prompt`. The game
+play prompt still comes from the MCP server.
 
 ```python
-instructions=(
-	"You are an agent that plays the game by using the available tools. "
-	"Show story text returned by game tools in full. Keep your own extra commentary short and plain. "
-	"Do not use markdown, bullet lists, tables, or code blocks. When a specialist tool returns advice "
-	"or an answer, show it plainly before continuing."
-)
+instructions=game_play_prompt
 ```
 
 The Azure AI Search context provider lives inside **agent_city_guide.py**, not in
