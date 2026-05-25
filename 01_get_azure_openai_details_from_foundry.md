@@ -23,8 +23,9 @@ with **API key**, **Project endpoint**, and **Azure OpenAI endpoint** boxes near
 the top of the page.
 
 1. Copy the value from the **Azure OpenAI endpoint** box. If the copied endpoint
-    ends with **/openai/v1**, remove that part before adding it to **.env**. For
-    example, change **https://foundry-12345.openai.azure.com/openai/v1** to
+    ends with **/openai/v1**, remove that part before adding it to
+    **.env**. For example, change
+    **https://foundry-12345.openai.azure.com/openai/v1** to
     **https://foundry-12345.openai.azure.com**.
 2. Copy the value from the **API key** box.
 3. Open the existing **.env** file in VS Code.
@@ -32,8 +33,8 @@ the top of the page.
 5. In the top navigation, select **Build**.
 6. Open **Models**.
 7. Confirm that **gpt-5.5** and **gpt-4.1-mini** are listed and each one has a **Succeeded** status.
-8. Confirm that **AZURE_OPENAI_DEPLOYMENT_NAME** in **.env** matches **gpt-5.5**.
-9. Confirm that **CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME** in **.env** matches **gpt-4.1-mini**.
+8. Confirm that `AZURE_OPENAI_DEPLOYMENT_NAME` in **.env** matches **gpt-5.5**.
+9. Confirm that `CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME` in **.env** matches **gpt-4.1-mini**.
 
 Your **.env** file should include these values:
 

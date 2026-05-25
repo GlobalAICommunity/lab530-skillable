@@ -21,6 +21,9 @@ Expected flow:
 6. It asks Agent42 again for the final movement mission.
 7. It reaches Fort Mason and appears on the leaderboard.
 
+> **Checkpoint:** the terminal shows the final game result, and the session log
+> contains calls to the game MCP tools, `ask_agent42`, and `ask_city_guide`.
+
 ## What You Learned
 
 You ran the completed agent through the full quest and confirmed that the model

@@ -9,7 +9,8 @@ The game exposes its actions as MCP tools and the game play agent prompt as an
 MCP prompt. In the agent code this connection is the `MCPStreamableHTTPTool`
 named `game_mcp`.
 
-Open the existing **.env** file and confirm the game MCP URL is already there:
+Open the existing **.env** file and confirm the game MCP URL is
+already there:
 
 ```env
 GAME_MCP_URL=https://mcp.workshop.agentcon.dev/san-francisco/mcp
@@ -34,6 +35,10 @@ game_mcp = MCPStreamableHTTPTool(
 )
 await game_mcp.connect()
 ```
+
+> [!Hint] MCP servers can expose more than tools. They can also expose prompts
+> that client agents load and use as instructions. In this workshop, the game
+> server owns the game play prompt so the agent and game stay in sync.
 
 After the MCP tool is connected, get the game play prompt from the MCP server:
 

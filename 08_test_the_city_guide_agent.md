@@ -12,21 +12,21 @@ In Microsoft Foundry:
 3. Confirm it is backed by Azure AI Search.
 4. Copy the Azure AI Search endpoint and query/admin key.
 
-Open the existing **.env** file in **C:\workshop** and add the city guide model
-deployment plus the Azure AI Search values:
+Open the existing **.env** file. Confirm the city guide model
+deployment is already set to **gpt-4.1-mini**, then add the Azure AI Search
+values:
 
 ```env
-CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME=<your-city-guide-deployment>
+CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4.1-mini
 
 AZURE_SEARCH_ENDPOINT=https://<your-search-service>.search.windows.net
-AZURE_SEARCH_KNOWLEDGE_BASE_NAME=<your-knowledge-base-name>
+AZURE_SEARCH_KNOWLEDGE_BASE_NAME=knowledgebase-city-guide
 AZURE_SEARCH_KEY=<your-azure-ai-search-key>
 ```
 
-The city guide specialist can use a smaller or cheaper deployment than the main
-game agent. If you want to keep the setup simple, set
-`CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME` to the same deployment name as
-`AZURE_OPENAI_DEPLOYMENT_NAME`.
+The city guide specialist uses a smaller deployment than the main game agent.
+Keep `CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME` set to **gpt-4.1-mini** so this
+agent uses the city guide deployment you validated earlier.
 
 In the VS Code Explorer, create a file named **agent_city_guide.py** in
 **C:\workshop**. Paste the full code below into **agent_city_guide.py** and save
@@ -111,8 +111,8 @@ Run **agent_city_guide.py** from the VS Code terminal:
 python agent_city_guide.py
 ```
 
-Checkpoint: the city guide agent should answer the Dolores Park question using
-the knowledge base.
+> **Checkpoint:** the city guide agent should answer the Dolores Park question
+> using the knowledge base.
 
 ## What You Learned
 

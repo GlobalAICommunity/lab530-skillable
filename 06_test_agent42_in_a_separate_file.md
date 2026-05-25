@@ -5,7 +5,7 @@ main game agent. This matters because Agent42 is the transport expert, and a
 standalone smoke test helps confirm A2A communication works before the full game
 flow depends on it.
 
-Open the existing **C:\workshop\.env** file and confirm the deployed Agent42 A2A
+Open the existing **.env** file and confirm the deployed Agent42 A2A
 URL is already present:
 
 ```env
