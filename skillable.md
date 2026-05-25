@@ -10,7 +10,7 @@
 ===
 !INSTRUCTIONS[Step 5: Add Session Logging](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/05_add_session_logging.md)
 ===
-!INSTRUCTIONS[Step 6: Test Agent42 In A Separate File](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/06_test_agent42_in_a_separate_file.md)
+!INSTRUCTIONS[Step 6: Test Agent42 Transport Specialist](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/06_test_agent42_transport_specialist.md)
 ===
 !INSTRUCTIONS[Step 7: Test The City Guide Agent](https://raw.githubusercontent.com/GlobalAICommunity/lab530-skillable/refs/heads/main/07_test_the_city_guide_agent.md)
 ===

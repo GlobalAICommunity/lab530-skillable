@@ -1,9 +1,12 @@
-# Step 6: Test Agent42 In A Separate File
+# Step 6: Test Agent42 Transport Specialist
 
 In this exercise, you test Agent42 in a separate file before wiring it into the
-main game agent. This matters because Agent42 is the transport expert, and a
-standalone smoke test helps confirm A2A communication works before the full game
-flow depends on it.
+main game agent. This matters because movement missions in the game ask the
+agent to choose between options like **car**, **walking**, and **bike**. Agent42
+is the transport specialist: it can compare a route, consider live weather and
+traffic, and return a recommendation the game agent can use before submitting a
+mission answer. A standalone smoke test helps confirm A2A communication works
+before the full game flow depends on it.
 
 Open the existing **.env** file and confirm the deployed Agent42 A2A
 URL is already present:
@@ -12,10 +15,11 @@ URL is already present:
 AGENT42_URL=https://agent42.workshop.agentcon.dev/
 ```
 
-> [!Hint] A2A stands for Agent-to-Agent. It lets one agent expose itself to
-> another agent as a callable specialist. In this step, your main workshop code
-> connects to Agent42 over A2A so it can ask transport questions and receive a
-> structured recommendation.
+> [!Hint] A2A stands for Agent-to-Agent. It lets one agent call another agent as
+> a specialist instead of rebuilding that specialist's logic locally. In this
+> step, **agent_agent42.py** connects to the deployed Agent42 service, sends it a
+> transport question, and gets back route advice that the main game agent can use
+> later.
 
 In the VS Code Explorer, create a file named **agent_agent42.py** in
 **C:\workshop**. Paste the full code below into **agent_agent42.py** and save the
@@ -72,17 +76,35 @@ if __name__ == "__main__":
 	asyncio.run(main())
 ```
 
+> [!Hint] You can experiment by editing the `question = "What is the best way to
+> get from the Ferry Building to Golden Gate Park?"` line. Choose two places that
+> are close enough for **car**, **bike**, and **walking** to all be plausible. Keep
+> them within about **50 km** of each other so Agent42 can show its reasoning.
+
 Run **agent_agent42.py** from the VS Code terminal:
 
 ```powershell
 python agent_agent42.py
 ```
 
-> **Checkpoint:** Agent42 replies with route options and ends with lines like:
+> **Checkpoint:** Agent42 should compare the route options and recommend one
+> transport choice. The reply should include a map link; Ctrl-click the link to
+> open it and inspect the route on the map. The reply should look like this:
 
-```text
+```text-notype-nocopy
+Weather: 12°C, overcast
+
+Options:
+Car: 4.3 miles, 16 minutes + 5 minutes pickup wait
+Bike: 4.0 miles, 20 minutes
+Walking: 3.7 miles, 72 minutes
+
+Reasoning: Car is the best balance of speed and convenience here, even after adding the rideshare pickup wait. It's cool and overcast, so biking is still fine, but it takes longer than driving. Walking is a pretty long trek for this trip.
+
+map: https://lab530storage.blob.core.windows.net/agent42-routes/w55nhqthcqzimgl.png
+directions: https://lab530storage.blob.core.windows.net/agent42-routes/w55nhqthcqzimgl.json
 recommendation: car
-recommendation code: <code>
+recommendation code: w55nhqthcqzimgl
 ```
 
 ## What You Learned
