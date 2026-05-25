@@ -13,7 +13,7 @@ This helper records user turns, model input, tool calls, and tool results. You
 will not run **log.py** directly. The main **agent.py** file will import and use
 these helper functions.
 
-```python
+```python-notype
 """Per-session conversation and tool logging for the workshop agent."""
 from __future__ import annotations
 

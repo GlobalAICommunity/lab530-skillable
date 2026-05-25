@@ -82,7 +82,7 @@ python agent.py
 If you want to compare your file with a complete version, **agent.py** should now
 look like this:
 
-```python
+```python-notype
 """Game play agent using Microsoft Agent Framework, Azure OpenAI, and MCP."""
 
 import asyncio

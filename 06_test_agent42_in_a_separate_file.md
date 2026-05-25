@@ -17,7 +17,7 @@ In the VS Code Explorer, create a file named **agent_agent42.py** in
 file. This file keeps the Agent42 A2A setup out of the main game agent, and it
 gives you a small smoke test you can run by itself:
 
-```python
+```python-notype
 """Agent42 transport specialist tool for movement missions."""
 
 import asyncio

@@ -33,7 +33,7 @@ In the VS Code Explorer, create a file named **agent_city_guide.py** in
 the file. This is a second specialist agent. Its search context provider lives
 here, so the main game agent does not spend RAG tokens on every turn.
 
-```python
+```python-notype
 """City guide specialist agent for San Francisco knowledge-base questions."""
 
 import asyncio

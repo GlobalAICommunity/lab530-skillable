@@ -8,7 +8,7 @@ add more moving parts.
 In the VS Code Explorer, create a file named **agent.py** in **C:\workshop**.
 Paste the full code below into **agent.py** and save the file:
 
-```python
+```python-notype
 """Game play agent using Microsoft Agent Framework with Azure OpenAI."""
 
 import asyncio
