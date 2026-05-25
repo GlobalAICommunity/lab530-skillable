@@ -19,27 +19,99 @@ and before the `Agent(...)` call:
 agent42_tool = build_agent42_tool()
 ```
 
-Still in **agent.py**, update the existing `Agent(...)` call. Keep the tools you
-already have and add `agent42_tool` to the tools list:
+Still in **agent.py**, update the existing `Agent(...)` call. Keep `game_mcp`
+and `save_player_id` from the previous steps, and add `agent42_tool` to the
+tools list:
 
 ```python
 tools=[game_mcp, save_player_id, agent42_tool]
 ```
 
-In the same `Agent(...)` call, update the instructions so the model knows when to
-use Agent42:
+## Full agent.py Sample
 
-```python
-instructions=(
-	"You are playing Lost in San Francisco. Use game tools to begin or resume "
-	"the session. Save any returned player_id. For movement missions, ask "
-	"Agent42 for the best transport option, then submit Agent42's recommendation "
-	"as the mission answer."
-)
+If you want to compare your file with a complete version, **agent.py** should now
+look like this:
+
+```python-notype
+"""Game play agent using Microsoft Agent Framework with Azure OpenAI."""
+
+import asyncio
+import json
+import os
+from pathlib import Path
+
+from agent_agent42 import build_agent42_tool
+from agent_framework import Agent, ContextProvider, MCPStreamableHTTPTool, tool
+from agent_framework.openai import OpenAIChatClient
+from dotenv import load_dotenv
+from log import build_logging_middleware, open_session_log
+
+MEMORY_FILE = Path("memory.json")
+
+load_dotenv(override=True)
+
+
+class PlayerContextProvider(ContextProvider):
+	async def before_run(self, *, agent, session, context, state) -> None:
+		if MEMORY_FILE.exists():
+			pid = json.loads(MEMORY_FILE.read_text()).get("player_id")
+			if pid:
+				context.extend_instructions(
+					self.source_id,
+					f"From memory: player_id: {pid}",
+				)
+
+
+@tool(description="Save the player_id returned after registration")
+async def save_player_id(player_id: str) -> str:
+	MEMORY_FILE.write_text(json.dumps({"player_id": player_id}))
+	return f"Player ID {player_id} saved."
+
+
+async def main() -> None:
+	client = OpenAIChatClient(
+		azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
+		api_key=os.environ["AZURE_OPENAI_API_KEY"],
+		model=os.environ["AZURE_OPENAI_DEPLOYMENT_NAME"],
+	)
+
+	game_mcp = MCPStreamableHTTPTool(
+		name="Gaming MCP Server",
+		url=os.environ["GAME_MCP_URL"],
+	)
+	await game_mcp.connect()
+
+	try:
+		log_path = open_session_log()
+		print(f"Session log: {log_path}")
+		agent_mw, chat_mw, function_mw = build_logging_middleware(log_path)
+		agent42_tool = build_agent42_tool()
+
+		agent = Agent(
+			client=client,
+			name="Game Play Agent",
+			instructions=(
+				"You are playing Lost in San Francisco. When a player_id is returned, "
+				"call save_player_id. If memory provides a player_id, resume that player."
+			),
+			tools=[game_mcp, save_player_id, agent42_tool],
+			context_providers=[PlayerContextProvider(source_id="player-memory")],
+			middleware=[agent_mw, chat_mw, function_mw],
+		)
+
+		session = agent.create_session()
+		response = await agent.run("start the game", session=session)
+		print(response.text)
+	finally:
+		await game_mcp.close()
+
+
+if __name__ == "__main__":
+	asyncio.run(main())
 ```
 
-Checkpoint: during the first movement mission, the session log should show a
-call to `ask_agent42` before `submit_mission_answer`.
+> **Checkpoint:** during the first movement mission, the session log should show
+> a call to `ask_agent42` before `submit_mission_answer`.
 
 ## What You Learned
 

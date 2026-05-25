@@ -5,11 +5,11 @@ main game agent. This matters because Agent42 is the transport expert, and a
 standalone smoke test helps confirm A2A communication works before the full game
 flow depends on it.
 
-Open the existing **.env** file in **C:\workshop** and add the deployed Agent42
-A2A URL:
+Open the existing **C:\workshop\.env** file and confirm the deployed Agent42 A2A
+URL is already present:
 
 ```env
-AGENT42_URL=https://<your-agent42-host>/
+AGENT42_URL=https://agent42.workshop.agentcon.dev/
 ```
 
 In the VS Code Explorer, create a file named **agent_agent42.py** in
@@ -73,7 +73,7 @@ Run **agent_agent42.py** from the VS Code terminal:
 python agent_agent42.py
 ```
 
-Checkpoint: Agent42 replies with route options and ends with lines like:
+> **Checkpoint:** Agent42 replies with route options and ends with lines like:
 
 ```text
 recommendation: car
