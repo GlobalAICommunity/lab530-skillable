@@ -6,8 +6,8 @@ because MCP turns the game into something the agent can operate instead of just
 talking about.
 
 The game exposes its actions as MCP tools and the game play agent prompt as an
-MCP prompt. In the agent code this connection is the `MCPStreamableHTTPTool`
-named `game_mcp`.
+MCP prompt. In the agent code this connection is the **MCPStreamableHTTPTool**
+named **game_mcp**.
 
 Open the existing **.env** file and confirm the game MCP URL is
 already there:
@@ -19,7 +19,7 @@ GAME_MCP_URL=https://mcp.workshop.agentcon.dev/san-francisco/mcp
 You do not need to change this value during the workshop.
 
 Go back to **agent.py**. At the top of **agent.py**, update the existing
-Microsoft Agent Framework import so it also imports `MCPStreamableHTTPTool`:
+Microsoft Agent Framework import so it also imports **MCPStreamableHTTPTool**:
 
 ```python
 from agent_framework import Agent, MCPStreamableHTTPTool
@@ -79,8 +79,10 @@ Run the agent from the VS Code terminal:
 python agent.py
 ```
 
-> **Checkpoint:** the agent should call the game server tools and receive a quest.
-> The first run usually registers a new player and starts a quest.
+> **Checkpoint:** the terminal may show experimental warning messages from the
+> framework, then the agent should welcome you to **Lost in San Francisco** and
+> ask whether you already have a `player_id`. If you do not have one yet, it asks
+> what name to put on your badge.
 
 
 

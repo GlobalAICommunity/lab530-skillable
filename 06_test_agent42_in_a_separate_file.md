@@ -12,6 +12,11 @@ URL is already present:
 AGENT42_URL=https://agent42.workshop.agentcon.dev/
 ```
 
+> [!Hint] A2A stands for Agent-to-Agent. It lets one agent expose itself to
+> another agent as a callable specialist. In this step, your main workshop code
+> connects to Agent42 over A2A so it can ask transport questions and receive a
+> structured recommendation.
+
 In the VS Code Explorer, create a file named **agent_agent42.py** in
 **C:\workshop**. Paste the full code below into **agent_agent42.py** and save the
 file. This file keeps the Agent42 A2A setup out of the main game agent, and it

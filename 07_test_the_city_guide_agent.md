@@ -1,9 +1,9 @@
-# Step 8: Test The City Guide Agent
+# Step 7: Test The City Guide Agent
 
-In this exercise, you test a city guide specialist that answers questions from
-the workshop knowledge base. This matters because guide missions should be solved
-with retrieval from the San Francisco content instead of hard-coded answers or
-model guesses.
+In this exercise, you test a city guide specialist in a separate file before
+wiring it into the main game agent. This matters because guide missions should
+be solved with retrieval from the San Francisco content instead of hard-coded
+answers or model guesses.
 
 In Microsoft Foundry:
 
@@ -12,9 +12,8 @@ In Microsoft Foundry:
 3. Confirm it is backed by Azure AI Search.
 4. Copy the Azure AI Search endpoint and query/admin key.
 
-Open the existing **.env** file. Confirm the city guide model
-deployment is already set to **gpt-4.1-mini**, then add the Azure AI Search
-values:
+Open the existing **.env** file. Confirm the city guide model deployment is
+already set to **gpt-4.1-mini**, then add the Azure AI Search values:
 
 ```env
 CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4.1-mini
@@ -30,7 +29,7 @@ agent uses the city guide deployment you validated earlier.
 
 In the VS Code Explorer, create a file named **agent_city_guide.py** in
 **C:\workshop**. Paste the full code below into **agent_city_guide.py** and save
-the file. This is a second specialist agent. Its search context provider lives
+the file. This is the second specialist agent. Its search context provider lives
 here, so the main game agent does not spend RAG tokens on every turn.
 
 ```python-notype
@@ -116,5 +115,5 @@ python agent_city_guide.py
 
 ## What You Learned
 
-You built a city guide specialist that retrieves knowledge with Foundry IQ and
-keeps the search context outside the main game agent.
+You built and tested the city guide specialist that retrieves knowledge with
+Foundry IQ before adding it to the main game agent.
