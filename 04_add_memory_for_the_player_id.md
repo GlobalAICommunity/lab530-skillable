@@ -24,7 +24,7 @@ MEMORY_FILE = Path("memory.json")
 > [!Hint] A context provider is a small hook that runs before the model gets a
 > turn. It can add useful context to the agent instructions, such as remembered
 > state from a previous run. In this step, the context provider reads
-> **C:\workshop\memory.json** and tells the agent which `player_id` to resume.
+> **memory.json** and tells the agent which `player_id` to resume.
 
 In **agent.py**, add this context provider class after the memory file constant
 and before `main()`. It injects the saved player ID before each model run:
@@ -73,9 +73,9 @@ agent = Agent(
 )
 ```
 
-Checkpoint: after registration, **C:\workshop\memory.json** should contain the saved
-`player_id`. On the next run, the agent should resume instead of registering a
-new player.
+> **Checkpoint:** after registration, **C:\workshop\memory.json** should contain the saved
+> `player_id`. On the next run, the agent should resume instead of registering a
+> new player.
 
 ## What You Learned
 

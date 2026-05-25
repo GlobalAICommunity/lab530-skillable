@@ -138,10 +138,20 @@ agent = Agent(
 )
 ```
 
-Checkpoint: run **agent.py** again. The terminal should print a line that starts
-with `Session log:`. In the VS Code Explorer, open the **logs** folder and select
-the newest log file. Use that file when the agent makes a surprising tool choice,
-because it shows the model input, tool calls, tool results, and final response.
+Run **agent.py** again from the VS Code terminal:
+
+```powershell
+python agent.py
+```
+
+The terminal should print a line that starts with `Session log:`. In the VS Code
+Explorer, open the **logs** folder and select the newest log file. Use this file
+when the agent makes a surprising tool choice, because it shows the model input,
+tool calls, tool results, and final response.
+
+> **Checkpoint:** the **logs** folder contains a new session log file for the
+> latest run, and that file includes entries for the model input, tool calls,
+> tool results, and final response.
 
 ## What You Learned
 
