@@ -1,7 +1,7 @@
 # Step 4: Add Memory For The Player ID
 
 In this exercise, you add lightweight memory so the agent can save the
-`player_id` returned by the game. This matters because future runs should resume
+**player_id** returned by the game. This matters because future runs should resume
 the same player session instead of registering a new player every time.
 
 Go back to **agent.py**. At the top of **agent.py**, add these imports with the
@@ -161,13 +161,13 @@ if __name__ == "__main__":
 	asyncio.run(main())
 ```
 
-> **Checkpoint:** after the second `agent.run(...)` call, the terminal should
-> show your new `player_id` and a message that says **Say START when you are
+> **Checkpoint:** after the second **agent.run(...)** call, the terminal should
+> show your new **player_id** and a message that says **Say START when you are
 > ready**. The **C:\workshop\memory.json** file should contain the saved
-> `player_id`. On the next run, the agent should resume instead of registering a
+> **player_id**. On the next run, the agent should resume instead of registering a
 > new player.
 
 ## What You Learned
 
 You added lightweight memory with a context provider and a save tool so the
-agent can remember its `player_id` between runs.
+agent can remember its **player_id** between runs.
