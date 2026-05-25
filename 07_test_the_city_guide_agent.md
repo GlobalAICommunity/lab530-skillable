@@ -5,31 +5,90 @@ specialist in a separate file before wiring it into the main game agent. This
 matters because guide missions should be solved with retrieval from the San
 Francisco content instead of hard-coded answers or model guesses.
 
-The specialist uses Foundry IQ to search a knowledge base backed by Azure AI
-Search. Foundry IQ gives the agent relevant guide content at the moment it needs
-it, so the model can answer from workshop material instead of relying only on
-what it already knows. Keeping this retrieval logic in a specialist agent also
-means the main game agent only spends search tokens when a guide question appears.
+The specialist uses an Azure AI Search knowledge base to retrieve relevant city
+guide chapters at the moment it needs them. That lets the model answer from
+workshop material instead of relying only on what it already knows. Keeping this
+retrieval logic in a specialist agent also means the main game agent only spends
+search tokens when a guide question appears.
 
-### In Microsoft Foundry, open the Foundry IQ setup:
+### In the Azure portal, create the city guide knowledge source
 
-1. In the top menu, select **Build**.
-2. In the left menu, select **Knowledge**.
-3. Scroll down until you see **Ground your agent in enterprise knowledge**.
+The city guide chapters are already uploaded to Azure Blob Storage for this
+workshop. The source files are in the **city-guide** folder in this repository,
+and the uploaded blob container is named **city-guide**.
 
-Foundry IQ is backed by Azure AI Search. For this workshop, Azure AI Search is already
-deployed; you only need to connect it to the Azure AI Search resource that was
-created for the lab.
+1. Open the Azure portal.
+2. Open the Azure AI Search resource for the workshop. There should only be one
+   Azure AI Search resource available.
+3. From the left pane, select **Agentic retrieval > Knowledge sources**.
+4. Select **Add knowledge source > Add knowledge source**.
+5. For the source type, select **Azure blob (Indexed)**.
 
-### In the Foundry IQ setup:
+> [!Hint] Do not select **Search index (Indexed)**. That option expects an
+> existing Azure AI Search index with semantic configuration. If you see **No
+> indexes with a default semantic configuration were found**, go back and choose
+> **Azure blob (Indexed)** instead.
 
-1. In the **Azure AI Search resource** dropdown, select the Azure AI Search
-   resource. There should only be one option.
-2. For **Auth Type**, select **API Key**.
-3. Click **Create a knowledge base**.
-4. 
+6. For **Name**, enter **city-guide**.
+7. For **Description**, enter **A San Francisco city guide with neighborhood,
+	history, food, culture, transit, and local knowledge**.
+8. For **Storage account**, select the storage account from the dropdown. There
+   should only be one option.
+9. For **Blob Container**, select **city-guide**.
+10. In the **Content extraction** section, set **Mode** to **Standard**.
+11. Select **Authenticate using managed identity**.
+12. For **Managed identity type**, keep **System-assigned** selected.
+13. Under **Enable text vectorization**, select **Add vectorizer**.
+14. For the vectorizer kind, select **Microsoft Foundry**.
+15. For **Subscription**, keep the workshop subscription selected.
+16. For **Microsoft Foundry project**, select the project for the workshop.
+	There should only be one option.
+17. For **Model deployment**, select **text-embedding-3-small**.
+18. For **Authentication type**, select **API key**.
+19. Click **Save**.
+20. Click **Create** to create the knowledge source.
+
+When the **Create succeeded** dialog appears, it should say the **city-guide**
+knowledge source was created successfully. Click **Create a knowledge base**.
+
+### In the Azure portal, create the city guide knowledge base
+
+1. For **Name**, enter **city-knowledgebase**.
+2. For **Description**, enter **San Francisco city guide knowledge base for
+	grounded workshop guide answers**.
+3. Under **Knowledge sources**, make sure **city-guide** is added and active.
+4. For **Retrieval reasoning effort**, select **Low**.
+5. Under **Chat completion model**, select **Add model deployment**.
+6. In the **Chat completion model** dialog, keep **Kind** set to **Microsoft Foundry**.
+7. For **Subscription**, keep the workshop subscription selected.
+8. For **Microsoft Foundry project**, select the project for the workshop.
+   There should only be one option.
+9. For **Model deployment**, select **gpt-4.1-mini**.
+10. For **Authentication type**, select **API key**.
+11. Click **Save**.
+12. For **Output mode**, select **Answer synthesis**.
+13. Under **Knowledge sources**, confirm **city-guide** is selected and active.
+14. Click **Save** in the top-left corner.
+
+Test the knowledge base in the Azure portal by asking:
+
+```text
+What is the name of the cocktail bar that was founded in 1907?
+```
+
+The answer should be **The cocktail bar founded in 1907 is the Comstock Saloon in North Beach**.
 
 
+After the knowledge base is saved, collect the Azure AI Search values for
+**.env**:
+
+1. Go back to the Azure AI Search resource page in the Azure portal.
+2. Open **Overview** and copy the **Url** value. This is the value for
+	**AZURE_SEARCH_ENDPOINT**.
+3. Open **Settings > Keys** and copy one of the **Query keys**. This is the value
+	for **AZURE_SEARCH_KEY**.
+4. Keep the knowledge base name **city-knowledgebase**. This is the value for
+	**AZURE_SEARCH_KNOWLEDGE_BASE_NAME**.
 
 Open the existing **.env** file. Confirm the city guide model deployment is
 already set to **gpt-4.1-mini**, then add the Azure AI Search values:
@@ -38,7 +97,7 @@ already set to **gpt-4.1-mini**, then add the Azure AI Search values:
 CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4.1-mini
 
 AZURE_SEARCH_ENDPOINT=https://<your-search-service>.search.windows.net
-AZURE_SEARCH_KNOWLEDGE_BASE_NAME=knowledgebase-city-guide
+AZURE_SEARCH_KNOWLEDGE_BASE_NAME=city-knowledgebase
 AZURE_SEARCH_KEY=<your-azure-ai-search-key>
 ```
 
@@ -97,8 +156,7 @@ def build_city_guide_tool():
 	guide_tool = guide_agent.as_tool(
 		name="ask_city_guide",
 		description=(
-			"Ask the San Francisco city guide knowledge base a question. Use this only "
-			"for city guide or local knowledge questions from the game."
+			"Ask the San Francisco city guide knowledge base a question."
 		),
 		arg_name="question",
 		arg_description="The city guide question to answer.",
@@ -109,7 +167,7 @@ def build_city_guide_tool():
 async def main() -> None:
 	load_dotenv(override=True)
 
-	question = "What neighborhood is Dolores Park in?"
+	question = "What is the name of the cocktail bar that was founded in 1907?"
 	guide_agent, search_context_provider = build_city_guide_agent()
 
 	try:
@@ -129,10 +187,11 @@ Run **agent_city_guide.py** from the VS Code terminal:
 python agent_city_guide.py
 ```
 
-> **Checkpoint:** the city guide agent should answer the Dolores Park question
-> using the knowledge base. The answer should mention **Mission District**.
+> **Checkpoint:** the city guide agent should answer using the Azure AI Search
+> knowledge base. The answer should mention **The cocktail bar founded in 1907 is
+> the Comstock Saloon in North Beach**.
 
 ## What You Learned
 
-You built and tested the city guide specialist that retrieves knowledge with
-Foundry IQ before adding it to the main game agent.
+You built and tested the city guide specialist that retrieves knowledge from an
+Azure AI Search knowledge base before adding it to the main game agent.

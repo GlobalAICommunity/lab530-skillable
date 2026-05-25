@@ -29,7 +29,7 @@ combines four capabilities you'll add one step at a time:
    quests, submit answers, and progress through missions.
 - **A2A (Agent-to-Agent)** — call Agent42 as a peer agent for
    weather-aware transport recommendations.
-- **Knowledge retrieval** — query an Azure AI Search index over the San
+- **Knowledge retrieval** — query an Azure AI Search knowledge base over the San
    Francisco city guide to answer the trivia-style missions.
 - **Memory & logging** — remember the player ID between runs and capture
    every prompt, tool call, and response in a session log you can inspect.
