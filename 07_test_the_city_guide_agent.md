@@ -1,16 +1,35 @@
 # Step 7: Test The City Guide Agent
 
-In this exercise, you test a city guide specialist in a separate file before
-wiring it into the main game agent. This matters because guide missions should
-be solved with retrieval from the San Francisco content instead of hard-coded
-answers or model guesses.
+In this exercise, you add knowledge to the workshop agent by testing a city guide
+specialist in a separate file before wiring it into the main game agent. This
+matters because guide missions should be solved with retrieval from the San
+Francisco content instead of hard-coded answers or model guesses.
 
-In Microsoft Foundry:
+The specialist uses Foundry IQ to search a knowledge base backed by Azure AI
+Search. Foundry IQ gives the agent relevant guide content at the moment it needs
+it, so the model can answer from workshop material instead of relying only on
+what it already knows. Keeping this retrieval logic in a specialist agent also
+means the main game agent only spends search tokens when a guide question appears.
 
-1. Create or open the workshop project.
-2. Open the knowledge base named `knowledgebase-city-guide`.
-3. Confirm it is backed by Azure AI Search.
-4. Copy the Azure AI Search endpoint and query/admin key.
+### In Microsoft Foundry, open the Foundry IQ setup:
+
+1. In the top menu, select **Build**.
+2. In the left menu, select **Knowledge**.
+3. Scroll down until you see **Ground your agent in enterprise knowledge**.
+
+Foundry IQ is backed by Azure AI Search. For this workshop, Azure AI Search is already
+deployed; you only need to connect it to the Azure AI Search resource that was
+created for the lab.
+
+### In the Foundry IQ setup:
+
+1. In the **Azure AI Search resource** dropdown, select the Azure AI Search
+   resource. There should only be one option.
+2. For **Auth Type**, select **API Key**.
+3. Click **Create a knowledge base**.
+4. 
+
+
 
 Open the existing **.env** file. Confirm the city guide model deployment is
 already set to **gpt-4.1-mini**, then add the Azure AI Search values:
@@ -24,7 +43,7 @@ AZURE_SEARCH_KEY=<your-azure-ai-search-key>
 ```
 
 The city guide specialist uses a smaller deployment than the main game agent.
-Keep `CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME` set to **gpt-4.1-mini** so this
+Keep **CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME** set to **gpt-4.1-mini** so this
 agent uses the city guide deployment you validated earlier.
 
 In the VS Code Explorer, create a file named **agent_city_guide.py** in
@@ -111,7 +130,7 @@ python agent_city_guide.py
 ```
 
 > **Checkpoint:** the city guide agent should answer the Dolores Park question
-> using the knowledge base.
+> using the knowledge base. The answer should mention **Mission District**.
 
 ## What You Learned
 

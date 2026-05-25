@@ -33,8 +33,8 @@ the top of the page.
 5. In the top navigation, select **Build**.
 6. Open **Models**.
 7. Confirm that **gpt-5.5** and **gpt-4.1-mini** are listed and each one has a **Succeeded** status.
-8. Confirm that `AZURE_OPENAI_DEPLOYMENT_NAME` in **.env** matches **gpt-5.5**.
-9. Confirm that `CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME` in **.env** matches **gpt-4.1-mini**.
+8. Confirm that **AZURE_OPENAI_DEPLOYMENT_NAME** in **.env** matches **gpt-5.5**.
+9. Confirm that **CITY_GUIDE_AZURE_OPENAI_DEPLOYMENT_NAME** in **.env** matches **gpt-4.1-mini**.
 
 Your **.env** file should include these values:
 
