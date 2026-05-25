@@ -46,9 +46,9 @@ After the MCP tool is connected, get the game play prompt from the MCP server:
 game_play_prompt = await game_mcp.get_prompt("game_play_prompt")
 ```
 
-Still in **agent.py**, update the existing `Agent(...)` call. Keep the client and
-name you already have, use `game_play_prompt` for the instructions, and add the
-`tools=[game_mcp]` line:
+Still in **agent.py**, update the existing **Agent(...)** call. Keep the client and
+name you already have, use **game_play_prompt** for the instructions, and add the
+**tools=[game_mcp]** line:
 
 ```python
 agent = Agent(
@@ -67,7 +67,7 @@ response = await agent.run("start the game", session=session)
 print(response.text)
 ```
 
-Close the MCP connection at the end of `main()`:
+Close the MCP connection at the end of **main()**:
 
 ```python
 await game_mcp.close()
