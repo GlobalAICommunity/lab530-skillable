@@ -17,9 +17,8 @@ The city guide chapters are already uploaded to Azure Blob Storage for this
 workshop. The source files are in the **city-guide** folder in this repository,
 and the uploaded blob container is named **city-guide**.
 
-1. Open the Azure portal.
-2. Open the Azure AI Search resource for the workshop. There should only be one
-   Azure AI Search resource available.
+1. Open the Azure portal by opening a tab and navigating to **https://portal.azure.com**.
+2. Type **AI Search** in the Search bar on top. Click on the first service type. There should only be one AI Search resource available, click on it.
 3. From the left pane, select **Agentic retrieval > Knowledge sources**.
 4. Select **Add knowledge source > Add knowledge source**.
 5. For the source type, select **Azure blob (Indexed)**.
@@ -30,32 +29,31 @@ and the uploaded blob container is named **city-guide**.
 > **Azure blob (Indexed)** instead.
 
 6. For **Name**, enter **city-guide**.
-7. For **Description**, enter **A San Francisco city guide with neighborhood,
-	history, food, culture, transit, and local knowledge**.
+7. For **Description**, enter **A San Francisco city guide with neighborhood,history, food, culture, transit, and local knowledge**.
 8. For **Storage account**, select the storage account from the dropdown. There
    should only be one option.
 9. For **Blob Container**, select **city-guide**.
 10. In the **Content extraction** section, set **Mode** to **Standard**.
-11. Select **Authenticate using managed identity**.
-12. For **Managed identity type**, keep **System-assigned** selected.
-13. Under **Enable text vectorization**, select **Add vectorizer**.
-14. For the vectorizer kind, select **Microsoft Foundry**.
-15. For **Subscription**, keep the workshop subscription selected.
-16. For **Microsoft Foundry project**, select the project for the workshop.
+11. Select the **Microsoft Foundry resource**.
+12. Select **Authenticate using managed identity**.
+13. For **Managed identity type**, keep **System-assigned** selected.
+14. Under **Enable text vectorization**, select **Add vectorizer**.
+15. For the vectorizer kind, select **Microsoft Foundry**.
+16. For **Subscription**, keep the workshop subscription selected.
+17. For **Microsoft Foundry project**, select the project for the workshop.
 	There should only be one option.
-17. For **Model deployment**, select **text-embedding-3-small**.
-18. For **Authentication type**, select **API key**.
-19. Click **Save**.
-20. Click **Create** to create the knowledge source.
+18. For **Model deployment**, select **text-embedding-3-small**.
+19. For **Authentication type**, select **API key**.
+20. Click **Save**.
+21. Click **Create** to create the knowledge source.
 
 When the **Create succeeded** dialog appears, it should say the **city-guide**
 knowledge source was created successfully. Click **Create a knowledge base**.
 
-### In the Azure portal, create the city guide knowledge base
+### Creating the city guide knowledge base
 
 1. For **Name**, enter **city-knowledgebase**.
-2. For **Description**, enter **San Francisco city guide knowledge base for
-	grounded workshop guide answers**.
+2. For **Description**, enter **San Francisco city guide knowledge base for grounded workshop guide answers**.
 3. Under **Knowledge sources**, make sure **city-guide** is added and active.
 4. For **Retrieval reasoning effort**, select **Low**.
 5. Under **Chat completion model**, select **Add model deployment**.
@@ -67,8 +65,7 @@ knowledge source was created successfully. Click **Create a knowledge base**.
 10. For **Authentication type**, select **API key**.
 11. Click **Save**.
 12. For **Output mode**, select **Answer synthesis**.
-13. Under **Knowledge sources**, confirm **city-guide** is selected and active.
-14. Click **Save** in the top-left corner.
+13. Click **Save** in the top-left corner.
 
 Test the knowledge base in the Azure portal by asking:
 
@@ -82,11 +79,12 @@ The answer should be **The cocktail bar founded in 1907 is the Comstock Saloon i
 After the knowledge base is saved, collect the Azure AI Search values for
 **.env**:
 
-1. Go back to the Azure AI Search resource page in the Azure portal.
+1. Go back to the AI Search resource page in the Azure portal.
 2. Open **Overview** and copy the **Url** value. This is the value for
 	**AZURE_SEARCH_ENDPOINT**.
-3. Open **Settings > Keys** and copy one of the **Query keys**. This is the value
-	for **AZURE_SEARCH_KEY**.
+3. Open **Settings > Keys** and copy one of the **Query keys** at the bottom section.
+    Make sure it is a **Query** and not an **Admin** key. 
+	This is the value for **AZURE_SEARCH_KEY**.
 4. Keep the knowledge base name **city-knowledgebase**. This is the value for
 	**AZURE_SEARCH_KNOWLEDGE_BASE_NAME**.
 
@@ -187,7 +185,7 @@ Run **agent_city_guide.py** from the VS Code terminal:
 python agent_city_guide.py
 ```
 
-> **Checkpoint:** the city guide agent should answer using the Azure AI Search
+> **Checkpoint:** the city guide agent should answer using the AI Search
 > knowledge base. The answer should mention **The cocktail bar founded in 1907 is
 > the Comstock Saloon in North Beach**.
 

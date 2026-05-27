@@ -43,11 +43,11 @@ await game_mcp.connect()
 After the MCP tool is connected, get the game play prompt from the MCP server:
 
 ```python
-game_play_prompt = await game_mcp.get_prompt("game_play_prompt")
+try:
+    game_play_prompt = await game_mcp.get_prompt("game_play_prompt")
 ```
 
-Still in **agent.py**, update the existing **Agent(...)** call. Keep the client and
-name you already have, use **game_play_prompt** for the instructions, and add the
+Still in **agent.py**,and inside the `try` block, update the existing **Agent(...)** call. Keep the client and name you already have, use **game_play_prompt** for the instructions, and add the
 **tools=[game_mcp]** line:
 
 ```python
@@ -70,7 +70,8 @@ print(response.text)
 Close the MCP connection at the end of **main()**:
 
 ```python
-await game_mcp.close()
+finally:
+    await game_mcp.close()
 ```
 
 Run the agent from the VS Code terminal:
@@ -84,7 +85,9 @@ python agent.py
 > ask whether you already have a **player_id**. If you do not have one yet, it asks
 > what name to put on your badge.
 
-
+> [!Hint] Check for indentation if you run into errors. Python is identation
+> sensitive, and as such you may run into runtime errors if blocks are not
+> properly indented. Look at the Sample below if you need help with this.
 
 ## Full agent.py Sample
 

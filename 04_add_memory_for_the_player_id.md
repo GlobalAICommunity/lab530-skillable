@@ -4,7 +4,7 @@ In this exercise, you add lightweight memory so the agent can save the
 **player_id** returned by the game. This matters because future runs should resume
 the same player session instead of registering a new player every time.
 
-Go back to **agent.py**. At the top of **agent.py**, add these imports with the
+Go back to **agent.py**. At the top of **agent.py**, combine these imports with the
 other imports:
 
 ```python

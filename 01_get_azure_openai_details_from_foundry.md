@@ -14,7 +14,7 @@ available in the existing **.env** file.
 4. Sign in with the details below:    
     **Username**: +++@lab.CloudPortalCredential(User1).Username+++    
     **Password (TAP)**:  +++@lab.CloudPortalCredential(User1).AccessToken+++     
-5. In the top bar, toggle on the **New Foundry** switch.
+5. In the top bar, make sure the **New Foundry** switch is toggled **On**.
 6. From the project dropdown, select the only project available and click **Let's go**.
 7. When the **Welcome to the new Microsoft Foundry** box appears, click **X** in the top-right corner.
 
