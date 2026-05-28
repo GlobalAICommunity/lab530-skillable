@@ -18,7 +18,9 @@ workshop. The source files are in the **city-guide** folder in this repository,
 and the uploaded blob container is named **city-guide**.
 
 1. Open the Azure portal by opening a tab and navigating to **https://portal.azure.com**.
-2. Type **AI Search** in the Search bar on top. Click on the first service type. There should only be one AI Search resource available, click on it.
+2. Type **AI Search** in the Search bar on top. Click on the first service type.
+![](./assets/ai-search-portal.png) 
+There should only be one AI Search resource available, click on it.
 3. From the left pane, select **Agentic retrieval > Knowledge sources**.
 4. Select **Add knowledge source > Add knowledge source**.
 5. For the source type, select **Azure blob (Indexed)**.
@@ -50,6 +52,8 @@ and the uploaded blob container is named **city-guide**.
 When the **Create succeeded** dialog appears, it should say the **city-guide**
 knowledge source was created successfully. Click **Create a knowledge base**.
 
+![Create Succeeded Dialog Box](./assets/create-knowledge-base.png)
+
 ### Creating the city guide knowledge base
 
 1. For **Name**, enter **city-knowledgebase**.
@@ -75,6 +79,8 @@ What is the name of the cocktail bar that was founded in 1907?
 
 The answer should be **The cocktail bar founded in 1907 is the Comstock Saloon in North Beach**.
 
+>[!Warning] If the answer is not found, you might need to wait for the associated indexer to be completed
+> ![Indexer-InProgress](./assets/indexer-inprogress.png)
 
 After the knowledge base is saved, collect the Azure AI Search values for
 **.env**:
@@ -82,9 +88,11 @@ After the knowledge base is saved, collect the Azure AI Search values for
 1. Go back to the AI Search resource page in the Azure portal.
 2. Open **Overview** and copy the **Url** value. This is the value for
 	**AZURE_SEARCH_ENDPOINT**.
+	![AI Search Endpoint Location](./assets/search-endpoint.png)
 3. Open **Settings > Keys** and copy one of the **Query keys** at the bottom section.
     Make sure it is a **Query** and not an **Admin** key. 
 	This is the value for **AZURE_SEARCH_KEY**.
+	![AI Search Keys Location](./assets/search-keys.png)
 4. Keep the knowledge base name **city-knowledgebase**. This is the value for
 	**AZURE_SEARCH_KNOWLEDGE_BASE_NAME**.
 

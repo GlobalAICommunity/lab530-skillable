@@ -11,6 +11,7 @@ available in the existing **.env** file.
 1. Open the Edge browser.
 2. Navigate to **https://ai.azure.com** in the browser's address bar, if it's not already open.
 3. Click **Sign in** in the top-right corner.
+![Sign-In Button](./assets/sign-in-foundry.png)
 4. Sign in with the details below:    
     **Username**: +++@lab.CloudPortalCredential(User1).Username+++    
     **Password (TAP)**:  +++@lab.CloudPortalCredential(User1).AccessToken+++     
@@ -21,6 +22,7 @@ available in the existing **.env** file.
 After you close the welcome box, you should see the Microsoft Foundry home page
 with **API key**, **Project endpoint**, and **Azure OpenAI endpoint** boxes near
 the top of the page.
+![](./assets/foundry-landing.png)
 
 1. Copy the value from the **Azure OpenAI endpoint** box. If the copied endpoint
     ends with **/openai/v1**, remove that part before adding it to
