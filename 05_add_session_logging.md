@@ -104,7 +104,7 @@ def build_logging_middleware(log_path: Path):
 ```
 
 > [!Hint] **What is middleware?**
-> Middleware is a function that wraps a step in the agent's pipeline so you can run code before and after it. The `await call_next()` line is what actually executes the step — anything before it runs first, anything after runs once the step completes. This framework has three interception points: the full agent turn (`@agent_middleware`), the model call (`@chat_middleware`), and each tool call (`@function_middleware`). Here you are using all three to write a log entry at each stage.
+> Middleware is a function that wraps a step in the agent's pipeline so you can run code before and after it. The **await call_next()** line is what actually executes the step — anything before it runs first, anything after runs once the step completes. This framework has three interception points: the full agent turn **@agent_middleware**, the model call **@chat_middleware**, and each tool call **@function_middleware**. Here you are using all three to write a log entry at each stage.
 
 Now go back to **agent.py**. At the top of **agent.py**, with the other imports,
 import the two helper functions from **log.py**:
