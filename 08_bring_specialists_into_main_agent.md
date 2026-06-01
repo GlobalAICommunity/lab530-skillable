@@ -5,6 +5,8 @@ agent, then run the complete chat loop. This matters because the final agent
 needs the game MCP tools, memory, logging, transport advice, and retrieval all
 working together in one conversation.
 
+> [!Hint] 🖥️ **In VS Code** — this whole step happens in the VS Code editor and terminal.
+
 Go back to **agent.py**. At the top of **agent.py**, with the other imports,
 import the two specialist tool builders:
 

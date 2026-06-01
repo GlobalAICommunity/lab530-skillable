@@ -5,6 +5,8 @@ agent so you can prove the model connection works. This matters because a simple
 hello-world run gives you a clean baseline before MCP, memory, A2A, and retrieval
 add more moving parts.
 
+> [!Hint] 🖥️ **In VS Code** — this whole step happens in the VS Code editor and terminal.
+
 In the VS Code Explorer, create a file named **agent.py** in **C:\workshop**.
 Paste the full code below into **agent.py** and save the file:
 

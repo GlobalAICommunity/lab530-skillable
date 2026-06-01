@@ -4,6 +4,8 @@ You built a working player agent for the **Lost in the City** workshop. The
 agent can start or resume a game, choose tools, ask other services for help,
 retrieve guidebook knowledge, remember useful state, and log what happened.
 
+> [!Hint] 📖 **Just reading** — this recap has no hands-on steps; nothing to switch to.
+
 ## What You Built
 
 - A Python agent using the Microsoft Agent Framework.

@@ -8,6 +8,8 @@ traffic, and return a recommendation the game agent can use before submitting a
 mission answer. A standalone smoke test helps confirm A2A communication works
 before the full game flow depends on it.
 
+> [!Hint] 🖥️ **In VS Code** — this step happens in VS Code; you only open the browser at the end to inspect the route map.
+
 Open the existing **.env** file and confirm the deployed Agent42 A2A
 URL is already present:
 
@@ -90,6 +92,8 @@ python agent_agent42.py
 > **Checkpoint:** Agent42 should compare the route options and recommend one
 > transport choice. The reply should include a map link; Ctrl-click the link to
 > open it and inspect the route on the map. The reply should look like this:
+
+> [!Hint] 🌐 **In the browser** — Ctrl-clicking the map link opens it in your browser. Inspect the route, then come back to VS Code.
 
 ```text-notype-nocopy
 Weather: 12°C, overcast

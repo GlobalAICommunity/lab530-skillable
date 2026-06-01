@@ -5,6 +5,8 @@ specialist in a separate file before wiring it into the main game agent. This
 matters because guide missions should be solved with retrieval from the San
 Francisco content instead of hard-coded answers or model guesses.
 
+> [!Hint] 🌐 **In the browser — Azure portal** — you start in the Azure portal to set up search, then switch to VS Code to create the specialist agent.
+
 The specialist uses an Azure AI Search knowledge base to retrieve relevant city
 guide chapters at the moment it needs them. That lets the model answer from
 workshop material instead of relying only on what it already knows. Keeping this
@@ -95,6 +97,8 @@ After the knowledge base is saved, collect the Azure AI Search values for
 	![AI Search Keys Location](./assets/search-keys.png)
 4. Keep the knowledge base name **city-knowledgebase**. This is the value for
 	**AZURE_SEARCH_KNOWLEDGE_BASE_NAME**.
+
+> [!Hint] 🖥️ **In VS Code** — the portal work is done; the rest of this step happens in the VS Code editor and terminal.
 
 Open the existing **.env** file. Confirm the city guide model deployment is
 already set to **gpt-4.1-mini**, then add the Azure AI Search values:

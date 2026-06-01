@@ -4,6 +4,8 @@ In this exercise, you add session logging so you can inspect what the agent sent
 what the model returned, and which tools were called. This matters because agent
 behavior is much easier to debug when each model call and tool result is visible.
 
+> [!Hint] 🖥️ **In VS Code** — this whole step happens in the VS Code editor and terminal.
+
 First, create the logging helper file. In the VS Code Explorer, click the new
 file button, name the file **log.py**, and make sure it appears next to
 **agent.py** in **C:\workshop**. Paste the full helper code below into

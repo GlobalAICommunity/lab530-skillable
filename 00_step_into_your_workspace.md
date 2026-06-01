@@ -1,5 +1,7 @@
 # Lost in the City Agent Workshop
 
+> [!Hint] 🖥️ **In VS Code** — you'll do all of this lab's hands-on work in VS Code, except where a step tells you to switch to the browser.
+
 ## The Story
 
 You've just landed in San Francisco. The fog is rolling in over the Golden

@@ -4,6 +4,8 @@ In this exercise, you add lightweight memory so the agent can save the
 **player_id** returned by the game. This matters because future runs should resume
 the same player session instead of registering a new player every time.
 
+> [!Hint] 🖥️ **In VS Code** — this whole step happens in the VS Code editor and terminal.
+
 Go back to **agent.py**. At the top of **agent.py**, combine these imports with the
 other imports:
 

@@ -5,6 +5,8 @@ through MCP so it can start sessions and call game actions as tools. This matter
 because MCP turns the game into something the agent can operate instead of just
 talking about.
 
+> [!Hint] 🖥️ **In VS Code** — this whole step happens in the VS Code editor and terminal.
+
 The game exposes its actions as MCP tools and the game play agent prompt as an
 MCP prompt. In the agent code this connection is the **MCPStreamableHTTPTool**
 named **game_mcp**.

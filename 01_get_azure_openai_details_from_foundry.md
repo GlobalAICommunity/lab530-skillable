@@ -5,6 +5,8 @@ Foundry so the agent can call the deployed chat model. This matters because ever
 later step depends on the same endpoint, API key, and deployment name being
 available in the existing **.env** file.
 
+> [!Hint] 🌐 **In the browser — Microsoft Foundry** — you start in the browser to collect values, and switch to VS Code only when a step says to open **.env**.
+
 
 ## Log in to Microsoft Foundry
 
@@ -32,6 +34,9 @@ the top of the page.
 2. Copy the value from the **API key** box.
 3. Open the existing **.env** file in VS Code.
 4. Add or update the endpoint and API key in **.env**.
+
+> [!Hint] 🖥️ **In VS Code** — steps 3 and 4 happen in the **.env** file. After saving, switch back to the browser for the next steps.
+
 5. In the top navigation, select **Build**.
 6. Open **Models**.
 7. Confirm that **gpt-5.5** and **gpt-4.1-mini** are listed and each one has a **Succeeded** status.
