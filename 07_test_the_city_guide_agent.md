@@ -37,9 +37,8 @@ There should only be one AI Search resource available, click on it.
 8. For **Storage account**, select the storage account from the dropdown. There
    should only be one option.
 9. For **Blob Container**, select **city-guide**.
-10. In the **Content extraction** section, set **Mode** to **Standard**.
-11. Select the **Microsoft Foundry resource**.
-12. Select **Authenticate using managed identity**.
+10. In the **Content extraction** section, set **Mode** to **Minimal**.
+11. Select **Authenticate using managed identity**.
 13. For **Managed identity type**, keep **System-assigned** selected.
 14. Under **Enable text vectorization**, select **Add vectorizer**.
 15. For the vectorizer kind, select **Microsoft Foundry**.
@@ -91,7 +90,7 @@ After the knowledge base is saved, collect the Azure AI Search values for
 2. Open **Overview** and copy the **Url** value. This is the value for
 	**AZURE_SEARCH_ENDPOINT**.
 	![AI Search Endpoint Location](./assets/search-endpoint.png)
-3. Open **Settings > Keys** and copy one of the **Query keys** at the bottom section.
+3. Open **Security + Networking > Keys** and copy one of the **Query keys** at the bottom section.
     Make sure it is a **Query** and not an **Admin** key. 
 	This is the value for **AZURE_SEARCH_KEY**.
 	![AI Search Keys Location](./assets/search-keys.png)
