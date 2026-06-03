@@ -24,6 +24,7 @@ and the uploaded blob container is named **city-guide**.
 ![](./assets/ai-search-portal.png) 
 There should only be one AI Search resource available, click on it.
 3. From the left pane, select **Agentic retrieval > Knowledge sources**.
+![](./assets/agent-retrieval.png)
 4. Select **Add knowledge source > Add knowledge source**.
 5. For the source type, select **Azure blob (Indexed)**.
 
