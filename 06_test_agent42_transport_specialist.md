@@ -69,7 +69,7 @@ def build_agent42_tool():
 async def main() -> None:
 	load_dotenv(override=True)
 
-	question = "What is the best way to get from the Ferry Building to Golden Gate Park?"
+	question = "What is the best way to get from Copacabana Beach to Arcos da Lapa?"
 	response = await build_agent42_agent().run(question)
 	print(response.text)
 
@@ -79,7 +79,7 @@ if __name__ == "__main__":
 ```
 
 > [!Hint] You can experiment by editing the `question = "What is the best way to
-> get from the Ferry Building to Golden Gate Park?"` line. Choose two places that
+> get from Copacabana Beach to Arcos da Lapa?"` line. Choose two places that
 > are close enough for **car**, **bike**, and **walking** to all be plausible. Keep
 > them within about **50 km** of each other so Agent42 can show its reasoning.
 
@@ -96,14 +96,14 @@ python agent_agent42.py
 > [!Hint] 🌐 **In the browser** — Ctrl-clicking the map link opens it in your browser. Inspect the route, then come back to VS Code.
 
 ```text-notype-nocopy
-Weather: 12°C, overcast
+Weather: 29°C, humid with scattered clouds
 
 Options:
-Car: 4.3 miles, 16 minutes + 5 minutes pickup wait
-Bike: 4.0 miles, 20 minutes
-Walking: 3.7 miles, 72 minutes
+Car: 6.9 km, 16 minutes + 5 minutes pickup wait
+Bike: 6.4 km, 20 minutes
+Walking: 6.0 km, 72 minutes
 
-Reasoning: Car is the best balance of speed and convenience here, even after adding the rideshare pickup wait. It's cool and overcast, so biking is still fine, but it takes longer than driving. Walking is a pretty long trek for this trip.
+Reasoning: Car is the best balance of speed and convenience here, even after adding the rideshare pickup wait. In warm, humid weather, biking is still possible but can be less comfortable for many travelers. Walking is a pretty long trek for this trip.
 
 map: https://lab530storage.blob.core.windows.net/agent42-routes/w55nhqthcqzimgl.png
 directions: https://lab530storage.blob.core.windows.net/agent42-routes/w55nhqthcqzimgl.json

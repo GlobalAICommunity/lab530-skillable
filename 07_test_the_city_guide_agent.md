@@ -2,8 +2,8 @@
 
 In this exercise, you add knowledge to the workshop agent by testing a city guide
 specialist in a separate file before wiring it into the main game agent. This
-matters because guide missions should be solved with retrieval from the San
-Francisco content instead of hard-coded answers or model guesses.
+matters because guide missions should be solved with retrieval from the Rio de
+Janeiro content instead of hard-coded answers or model guesses.
 
 > [!Hint] 🌐 **In the browser — Azure portal** — you start in the Azure portal to set up search, then switch to VS Code to create the specialist agent.
 
@@ -34,7 +34,7 @@ There should only be one AI Search resource available, click on it.
 > **Azure blob (Indexed)** instead.
 
 6. For **Name**, enter **city-guide**.
-7. For **Description**, enter **A San Francisco city guide with neighborhood,history, food, culture, transit, and local knowledge**.
+7. For **Description**, enter **A Rio de Janeiro city guide with neighborhoods, history, food, culture, transit, and local knowledge**.
 8. For **Storage account**, select the storage account from the dropdown. There
    should only be one option.
 9. For **Blob Container**, select **city-guide**.
@@ -59,7 +59,7 @@ knowledge source was created successfully. Click **Create a knowledge base**.
 ### Creating the city guide knowledge base
 
 1. For **Name**, enter **city-knowledgebase**.
-2. For **Description**, enter **San Francisco city guide knowledge base for grounded workshop guide answers**.
+2. For **Description**, enter **Rio de Janeiro city guide knowledge base for grounded workshop guide answers**.
 3. Under **Knowledge sources**, make sure **city-guide** is added and active.
 4. For **Retrieval reasoning effort**, select **Low**.
 5. Under **Chat completion model**, select **Add model deployment**.
@@ -76,10 +76,10 @@ knowledge source was created successfully. Click **Create a knowledge base**.
 Test the knowledge base in the Azure portal by asking:
 
 ```text
-What is the name of the cocktail bar that was founded in 1907?
+What is Rio's signature monument on Corcovado Mountain?
 ```
 
-The answer should be **The cocktail bar founded in 1907 is the Comstock Saloon in North Beach**.
+The answer should mention **Cristo Redentor (Christ the Redeemer)**.
 
 >[!Warning] If the answer is not found, you might need to wait for the associated indexer to be completed
 > ![Indexer-InProgress](./assets/indexer-inprogress.png)
@@ -121,7 +121,7 @@ the file. This is the second specialist agent. Its search context provider lives
 here, so the main game agent does not spend RAG tokens on every turn.
 
 ```python-notype
-"""City guide specialist agent for San Francisco knowledge-base questions."""
+"""City guide specialist agent for Rio de Janeiro knowledge-base questions."""
 
 import asyncio
 import os
@@ -149,9 +149,9 @@ def build_city_guide_agent():
 
 	guide_agent = Agent(
 		client=client,
-		name="San Francisco City Guide Agent",
+		name="Rio de Janeiro City Guide Agent",
 		instructions=(
-			"Answer San Francisco city guide questions using the provided search context. "
+			"Answer Rio de Janeiro city guide questions using the provided search context. "
 			"Keep answers brief and return only the answer needed by the game."
 		),
 		context_providers=[search_context_provider],
@@ -166,7 +166,7 @@ def build_city_guide_tool():
 	guide_tool = guide_agent.as_tool(
 		name="ask_city_guide",
 		description=(
-			"Ask the San Francisco city guide knowledge base a question."
+			"Ask the Rio de Janeiro city guide knowledge base a question."
 		),
 		arg_name="question",
 		arg_description="The city guide question to answer.",
@@ -177,7 +177,7 @@ def build_city_guide_tool():
 async def main() -> None:
 	load_dotenv(override=True)
 
-	question = "What is the name of the cocktail bar that was founded in 1907?"
+	question = "What is Rio's signature monument on Corcovado Mountain?"
 	guide_agent, search_context_provider = build_city_guide_agent()
 
 	try:
@@ -198,8 +198,8 @@ python agent_city_guide.py
 ```
 
 > **Checkpoint:** the city guide agent should answer using the AI Search
-> knowledge base. The answer should mention **The cocktail bar founded in 1907 is
-> the Comstock Saloon in North Beach**.
+> knowledge base. The answer should mention **Cristo Redentor (Christ the
+> Redeemer)**.
 
 ## What You Learned
 

@@ -15,7 +15,7 @@ retrieve guidebook knowledge, remember useful state, and log what happened.
    and tool results.
 - A separate Agent42 test client for transport recommendations.
 - An Agent42 tool inside the main player agent.
-- A city guide specialist that answers questions from the San Francisco guide.
+- A city guide specialist that answers questions from the Rio de Janeiro guide.
 - A city guide tool inside the main player agent.
 - A final run that plays through the complete quest.
 

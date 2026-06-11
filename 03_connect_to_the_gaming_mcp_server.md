@@ -15,7 +15,7 @@ Open the existing **.env** file and confirm the game MCP URL is
 already there:
 
 ```env
-GAME_MCP_URL=https://mcp.workshop.agentcon.dev/san-francisco/mcp
+GAME_MCP_URL=https://mcp.workshop.agentcon.dev/rio-de-janeiro/mcp
 ```
 
 You do not need to change this value during the workshop.
@@ -83,7 +83,7 @@ python agent.py
 ```
 
 > **Checkpoint:** the terminal may show experimental warning messages from the
-> framework, then the agent should welcome you to **Lost in San Francisco** and
+> framework, then the agent should welcome you to **Lost in Rio de Janeiro** and
 > ask whether you already have a **player_id**. If you do not have one yet, it asks
 > what name to put on your badge.
 

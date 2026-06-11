@@ -4,10 +4,10 @@
 
 ## The Story
 
-You've just landed in San Francisco. The fog is rolling in over the Golden
-Gate, your phone is almost dead, and somewhere across the city — past the
-hills of North Beach, the murals of the Mission, and the cable cars of Nob
-Hill — there's a final destination waiting. The clock is ticking.
+You've just landed in Rio de Janeiro, Brazil. The afternoon heat hangs over Guanabara
+Bay, your phone is almost dead, and somewhere across the city — past the
+arches of Lapa, the crowds of Copacabana, and the slopes below Corcovado —
+there's a final destination waiting. The clock is ticking.
 
 You won't be navigating alone. In this workshop you'll build an AI **player
 agent** that takes on the *Lost in the City* quest on your behalf. It will:
@@ -15,8 +15,8 @@ agent** that takes on the *Lost in the City* quest on your behalf. It will:
 - Pick up missions from a game server and report back the answers.
 - Phone a transport expert, **Agent42**, to decide whether to grab a taxi,
    hop on a bike, or hoof it — based on the weather, traffic, and route.
-- Consult a **city guide** knowledge base to dig clues out of San Francisco's
-   neighborhoods, history, food, and hidden corners.
+- Consult a **city guide** knowledge base to dig clues out of Rio de
+   Janeiro's neighborhoods, history, food, and hidden corners.
 - Remember who the player is between runs, and write a clear log of every
    model call, tool call, and decision it made.
 
@@ -31,8 +31,8 @@ combines four capabilities you'll add one step at a time:
    quests, submit answers, and progress through missions.
 - **A2A (Agent-to-Agent)** — call Agent42 as a peer agent for
    weather-aware transport recommendations.
-- **Knowledge retrieval** — query an Azure AI Search knowledge base over the San
-   Francisco city guide to answer the trivia-style missions.
+- **Knowledge retrieval** — query an Azure AI Search knowledge base over the Rio
+   de Janeiro city guide to answer the trivia-style missions.
 - **Memory & logging** — remember the player ID between runs and capture
    every prompt, tool call, and response in a session log you can inspect.
 
