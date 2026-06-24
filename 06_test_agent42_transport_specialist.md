@@ -69,7 +69,7 @@ def build_agent42_tool():
 async def main() -> None:
 	load_dotenv(override=True)
 
-	question = "What is the best way to get from Copacabana Beach to Arcos da Lapa?"
+	question = "What is the best way to get from Driebergen-Zeist station to Landgoed de Horst, Driebergen?"
 	response = await build_agent42_agent().run(question)
 	print(response.text)
 
@@ -79,7 +79,7 @@ if __name__ == "__main__":
 ```
 
 > [!Hint] You can experiment by editing the `question = "What is the best way to
-> get from Copacabana Beach to Arcos da Lapa?"` line. Choose two places that
+> get from Driebergen-Zeist station to Landgoed de Horst, Driebergen?"` line. Choose two places that
 > are close enough for **car**, **bike**, and **walking** to all be plausible. Keep
 > them within about **50 km** of each other so Agent42 can show its reasoning.
 
