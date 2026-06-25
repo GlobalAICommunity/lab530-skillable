@@ -20,8 +20,6 @@ GAME_MCP_URL=https://mcp.workshop.agentcon.dev/driebergen/mcp
 
 > [!Hint] Make sure you update the URL to the Driebergen one, because you do not want to be lost in San Francisco.
 
-You do not need to change this value during the workshop.
-
 Go back to **agent.py**. At the top of **agent.py**, update the existing
 Microsoft Agent Framework import so it also imports **MCPStreamableHTTPTool**:
 
